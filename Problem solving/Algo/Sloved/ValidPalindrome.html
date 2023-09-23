@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var isPalindrome = function (s) {
+        const char1 = s
+          .toLowerCase()
+          .split("")
+          .filter((char) => /[a-z0-9]/.test(char))
+          .join("");
+        const char2 = char1.split("").reverse().join("");
+        if (char1 === char2) {
+          console.log("True");
+        } else {
+          console.log("false");
+        }
+      };
+      isPalindrome("A man, a plan, a canal: Panama");
+    </script>
+  </body>
+</html>

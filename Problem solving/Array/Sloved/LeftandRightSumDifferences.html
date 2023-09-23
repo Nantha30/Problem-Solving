@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function leftRigthDifference(nums) {
+        let ans = [];
+        let left = [];
+        let right = [];
+        let a = 0;
+        let b = 0;
+        for (let i = 0; i < nums.length; i++) {
+          left.push(a);
+          a = a + nums[i];
+          right.unshift(b);
+          b = b + nums[nums.length - 1 - i];
+        }
+        for (let j = 0; j < nums.length; j++) {
+          ans.push(Math.abs(left[j] - right[j]));
+          console.log(ans);
+        }
+      }
+      leftRigthDifference([10, 4, 8, 3]);
+    </script>
+  </body>
+</html>

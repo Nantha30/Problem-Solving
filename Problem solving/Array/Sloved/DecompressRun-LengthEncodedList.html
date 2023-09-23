@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var decompressRLElist = function (nums) {
+        const result = [];
+        for (let i = 0; i < nums.length; i += 2) {
+          const freq = nums[i];
+          //   console.log(freq);
+          const val = nums[i + 1];
+          //   console.log(val);
+          for (let j = 0; j < freq; j++) {
+            result.push(val);
+            console.log(result);
+          }
+        }
+      };
+      decompressRLElist([1, 2, 3, 4]);
+    </script>
+  </body>
+</html>

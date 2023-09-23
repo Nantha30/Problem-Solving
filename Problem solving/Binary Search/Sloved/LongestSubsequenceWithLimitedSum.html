@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var answerQueries = function (nums, queries) {
+        const arr = [];
+
+        nums.sort((a, b) => a - b);
+        for (let i = 0; i < queries.length; i++) {
+          sum = 0;
+          check = 0;
+          for (let j = 0; j < nums.length; j++) {
+            sum = sum + nums[j];
+            if (sum <= queries[i]) {
+              check = check + 1;
+            }
+          }
+          arr.push(check);
+        }
+        console.log(arr);
+      };
+
+      answerQueries([4, 5, 2, 1], [3, 10, 21]);
+    </script>
+  </body>
+</html>

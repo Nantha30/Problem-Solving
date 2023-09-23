@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var targetIndices = function (nums, target) {
+        // Sort the array in non-decreasing order
+        nums.sort((a, b) => a - b);
+
+        if (nums.length === 0) {
+          return [];
+        }
+
+        var start = 0;
+        var end = nums.length - 1;
+        var result = [];
+
+        while (start <= end) {
+          var mid = Math.floor((start + end) / 2);
+          if (nums[mid] === target) {
+            // Add the first occurrence to the result array
+            result.push(mid);
+            // Search for other occurrences to the left of the first one
+            var i = mid - 1;
+            while (i >= start && nums[i] === target) {
+              result.push(i);
+
+              i--;
+            }
+            // Search for other occurrences to the right of the first one
+            i = mid + 1;
+            while (i <= end && nums[i] === target) {
+              result.push(i);
+              i++;
+            }
+            // Return the sorted list of all occurrences
+            return result.sort((a, b) => a - b);
+          } else if (nums[mid] < target) {
+            start = mid + 1;
+          } else {
+            end = mid - 1;
+          }
+        }
+
+        // Return an empty array if the target is not found
+        return [];
+      };
+
+      searchAndSort([1, 2, 5, 2, 3], 5);
+    </script>
+  </body>
+</html>
